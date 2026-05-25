@@ -279,7 +279,7 @@
 
     /* Floating badge */
     .floating-badge {
-      position: relative;
+      position: fixed; bottom: var(--space-6); right: var(--space-6); z-index: 50;
       display: flex; align-items: center; gap: var(--space-2);
       padding: var(--space-2) var(--space-4);
       background: color-mix(in oklch, var(--color-bg) 82%, transparent);
@@ -449,7 +449,8 @@
 
     /* ── Scroll-to-top ── */
     .scroll-top {
-      position: relative;
+      position: fixed; bottom: var(--space-6); right: var(--space-6);
+      z-index: 100;
       width: 44px; height: 44px;
       border-radius: 50%;
       background: var(--color-primary);
@@ -503,23 +504,6 @@
     }
     .skill-bar-fill.animated {
       width: var(--bar-target) !important;
-    }
-
-  
-    /* ── Fixed actions container (badge + scroll-top) ── */
-    .fixed-actions {
-      position: fixed;
-      bottom: var(--space-6);
-      right: var(--space-6);
-      z-index: 100;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 0;
-      transition: gap .3s ease;
-    }
-    .fixed-actions.has-scroll-top {
-      gap: var(--space-3);
     }
 
   </style>
@@ -696,7 +680,7 @@
             <div>
               <div class="edu-degree" data-i18n="eduDeg1">Mérnökinformatikus BSc.</div>
               <div class="edu-school" data-i18n="eduSchool1">Szegedi Tudományegyetem</div>
-              <div class="edu-meta" data-i18n="eduMeta1">Szeged · 2023 – folyamatban (2027 tervezett végzés)</div>
+              <div class="edu-meta">Szeged · 2023 – folyamatban(2027 tervezett végzés)</div>
             </div>
           </div>
           <div class="edu-item">
@@ -704,7 +688,7 @@
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
             </div>
             <div>
-              <div class="edu-degree" data-i18n="eduDeg2">Érettségi — Emelt szintű Matematika</div>
+              <div class="edu-degree">Érettségi — Emelt szintű Matematika</div>
               <div class="edu-school" data-i18n="eduSchool2">Ciszterci Rend Nagy Lajos Gimnáziuma és Kollégiuma</div>
               <div class="edu-meta" data-i18n="eduMeta2">2019 – 2023 · Emelt óraszámú Informatika-Matematika osztály</div>
             </div>
@@ -1229,15 +1213,10 @@
   <!-- DESIGN UPGRADE -->
   <div class="hero-bg-gradient" aria-hidden="true"></div>
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
-  <div class="fixed-actions" id="fixed-actions">
-    <button class="scroll-top" id="scroll-top" aria-label="Vissza a tetejére">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
-    </button>
-    <a href="#contact" class="floating-badge" id="floating-badge" aria-label="Elérhetőség">
-      <span class="floating-badge-dot"></span>
-      <span data-i18n="floatingBadge">Elérhetőség</span>
-    </a>
-  </div>
+  <a href="#contact" class="floating-badge" aria-label="Elérhetőség">
+    <span class="floating-badge-dot"></span>
+    <span data-i18n="floatingBadge">Elérhetőség</span>
+  </a>
   <script>
     const bar = document.getElementById('scroll-progress');
     window.addEventListener('scroll', () => {
@@ -1354,7 +1333,7 @@
       eduEyebrow: "Education", eduHeading: "Education & Training",
       eduDeg1: "BSc. Computer Engineering", eduSchool1: "University of Szeged",
       eduMeta1: "Szeged · 2023 – present (expected graduation 2027)",
-      eduDeg2: "High School Graduation Exam — Advanced Mathematics",
+      eduDeg2: "A-Levels — Advanced Mathematics & Physics",
       eduSchool2: "Nagy Lajos Grammar School of the Cistercian Order",
       eduMeta2: "2019 – 2023 · Advanced Computer Science & Mathematics stream",
       courseTitle: "Relevant Coursework",
@@ -1440,20 +1419,19 @@
   });
 })();
 </script>
-
+  <button class="scroll-top" id="scroll-top" aria-label="Vissza a tetejére">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 <script>
 (function() {
   // ── Scroll-to-top ──
   var topBtn = document.getElementById('scroll-top');
-  var fixedActions = document.getElementById('fixed-actions');
   if (topBtn) {
     window.addEventListener('scroll', function() {
       if (window.scrollY > 400) {
         topBtn.classList.add('visible');
-        if (fixedActions) fixedActions.classList.add('has-scroll-top');
       } else {
         topBtn.classList.remove('visible');
-        if (fixedActions) fixedActions.classList.remove('has-scroll-top');
       }
     }, { passive: true });
     topBtn.addEventListener('click', function() {
