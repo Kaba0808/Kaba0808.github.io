@@ -66,7 +66,7 @@
     img,picture,video,canvas,svg{display:block;max-width:100%;height:auto}
     ul[role="list"],ol[role="list"]{list-style:none}
     input,button,textarea,select{font:inherit;color:inherit}
-    h1,h2,h3,h4,h5,h6{text-wrap:balance;line-height:1.15}
+    h1,h2,h3,h4,h5,h6{text-wrap:balance;line-height:1.75}
     p{text-wrap:pretty;max-width:72ch}
     ::selection{background:oklch(from var(--color-primary) l c h/.2);color:var(--color-text)}
     :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
@@ -565,7 +565,7 @@
     <section class="hero" aria-label="Bemutatkozás">
       <div class="hero-content">
         <p class="hero-eyebrow" data-i18n="heroEyebrow">Mérnökinformatikus hallgató · SZTE</p>
-        <h1 class="hero-name">Kárász<br><em>Barna</em></h1>
+        <h1 class="hero-name">Kárász<br><em>Barna Kristóf‎ ‎ </em></h1>
         <p class="hero-sub" data-i18n="heroSub">Kíváncsi és problémamegoldó szemléletű fejlesztő, aki rendszerekben gondolkodik és praktikus megoldásokra törekszik.</p>
         <div class="hero-tags">
           <span class="tag">Robotika</span>
@@ -634,7 +634,7 @@
             <div class="stat-label" data-i18n="statLabel3">Technológia</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">2</div>
+            <div class="stat-number">3</div>
             <div class="stat-label" data-i18n="statLabel4">Munkatapasztalat</div>
           </div>
         </div>
@@ -654,7 +654,25 @@
       <div class="exp-list reveal">
         <div class="exp-item">
           <div class="exp-icon-wrap" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="4" y="5" width="16" height="14" rx="2"></rect>
+              <path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"></path>
+              <path d="M8 9h8v6H8z"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="exp-role" data-i18n="expRole3">Fejlesztő mérnök</div>
+            <div class="exp-org" data-i18n="expOrg3">Optin Kft.</div>
+            <div class="exp-meta">2026 – <span data-i18n="expPresent">jelen</span></div>
+            <div class="exp-desc" data-i18n="expDesc3">STM32 Mikrovezérlő C-kódjának fejlesztése.</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-icon-wrap" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" />
+              <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+            </svg>
           </div>
           <div>
             <div class="exp-role" data-i18n="expRole1">Interdiszciplináris Konferencia Szervező</div>
@@ -665,13 +683,18 @@
         </div>
         <div class="exp-item">
           <div class="exp-icon-wrap" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 20V10" />
+              <path d="M12 20V4" />
+              <path d="M6 20v-6" />
+            </svg>
           </div>
           <div>
             <div class="exp-role" data-i18n="expRole2">IT Koordinátor és Support</div>
             <div class="exp-org" data-i18n="expOrg2">Ozora Fesztivál</div>
             <div class="exp-meta">2024</div>
-            <div class="exp-desc" data-i18n="expDesc2">Külföldi fesztiválozók segítése és koordinálása a regisztrációs folyamatok során.</div>
+            <div class="exp-desc" data-i18n="expDesc2">Külföldi fesztiválozók segítése és koordinálása a regisztrációs
+              folyamatok során.</div>
           </div>
         </div>
       </div>
@@ -1378,6 +1401,10 @@
       expRole2: "IT Koordinátor és Support", 
       expOrg2: "Ozora Fesztivál",
       expDesc2: "Külföldi fesztiválozók segítése és koordinálása a regisztrációs folyamatok során.",
+      expRole3: "Fejlesztő mérnök",
+      expOrg3: "Optin Kft.",
+      expPresent: "jelen",
+      expDesc3: "STM32 Mikrovezérlő C-kódjának fejlesztése.",
       eduEyebrow: "Tanulmányok", 
       eduHeading: "Oktatás & Képzés",
       eduDeg1: "Mérnökinformatikus BSc.", 
@@ -1491,6 +1518,10 @@
       expRole2: "IT Coordinator & Support", 
       expOrg2: "Ozora Festival",
       expDesc2: "Assisted and coordinated international festival attendees throughout registration and on-site IT support processes.",
+      expRole3: "Development Engineer",
+      expOrg3: "Optin Kft.",
+      expPresent: "present",
+      expDesc3: "Development of STM32 microcontroller C code.",
       eduEyebrow: "Education", 
       eduHeading: "Education & Training",
       eduDeg1: "BSc. Computer Engineering", 
