@@ -1693,9 +1693,6 @@
 
     sections.forEach(function (section) {
       var rect = section.getBoundingClientRect();
-
-      // Csak akkor tekintjük aktívnak,
-      // ha a szekció teteje már elérte a navbar alatti részt.
       if (rect.top <= navOffset) {
         currentId = section.id;
       }
