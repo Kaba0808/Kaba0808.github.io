@@ -1686,19 +1686,32 @@
   // ── Active nav highlight ──
   var sections = document.querySelectorAll('section[id]');
   var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-  if (sections.length && navLinks.length) {
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var id = entry.target.id;
-          navLinks.forEach(function(a) {
-            a.classList.toggle('nav-active', a.getAttribute('href') === '#' + id);
-          });
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
-    sections.forEach(function(s) { observer.observe(s); });
+
+  function updateActiveNav() {
+    var currentId = null;
+    var navOffset = 100;
+
+    sections.forEach(function (section) {
+      var rect = section.getBoundingClientRect();
+
+      // Csak akkor tekintjük aktívnak,
+      // ha a szekció teteje már elérte a navbar alatti részt.
+      if (rect.top <= navOffset) {
+        currentId = section.id;
+      }
+    });
+
+    navLinks.forEach(function (a) {
+      a.classList.toggle(
+        'nav-active',
+        currentId !== null &&
+        a.getAttribute('href') === '#' + currentId
+      );
+    });
   }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  window.addEventListener('load', updateActiveNav);
 
   // ── Skill bar animation ──
   var fills = document.querySelectorAll('.skill-bar-fill');
